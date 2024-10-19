@@ -4,9 +4,9 @@ import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
-const Formulario = () => {
+const Formulario = (props) => {
 
-    const times = [
+    const setores = [
         'Governo',
         'Educação',
         'Planejamento',
@@ -17,11 +17,16 @@ const Formulario = () => {
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
+    const [setor, setSetor] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        console.log('Form foi submetido')
+        props.aoServidorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            setor
+        })
     }
 
     return (
@@ -50,9 +55,10 @@ const Formulario = () => {
 
                 <ListaSuspensa 
                 obrigatorio={true} 
-                label="Time" itens={times}
-                valor = {time} 
-                aoAlterado = {valor => setTime(valor)}
+                label="Setor" setores={setores}
+                placeholder ="Selecione o setor"
+                valor = {setor} 
+                aoAlterado = {valor => setSetor(valor)}
                 />
                 <Botao>
                     Criar Card
