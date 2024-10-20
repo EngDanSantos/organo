@@ -6,14 +6,6 @@ import './Formulario.css'
 
 const Formulario = (props) => {
 
-    const setores = [
-        'Governo',
-        'Educação',
-        'Planejamento',
-        'Saúde',
-        'Meio Ambiente',
-    ]
-
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
@@ -55,7 +47,7 @@ const Formulario = (props) => {
 
                 <ListaSuspensa 
                 obrigatorio={true} 
-                label="Setor" setores={setores}
+                label="Setor" setores={props.setores}
                 placeholder ="Selecione o setor"
                 valor = {setor} 
                 aoAlterado = {valor => setSetor(valor)}
