@@ -3,9 +3,11 @@ import './Setor.css'
 
 const Setor = (props) =>{
     return(
-        <section className='setor' style={{backgroundColor: props.corSecundaria}}>
+       (props.servidores.length > 0) && <section className='setor' style={{backgroundColor: props.corSecundaria}}>
             <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
-            <Servidor></Servidor>
+            <div className='servidores'>
+                {props.servidores.map(servidor => <Servidor nome={servidor.nome} cargo={servidor.cargo} imagem={servidor.imagem}/>)}
+            </div>
         </section>
     )
 }

@@ -53,8 +53,18 @@ const aoNovoServidor = (servidor) => {
   return (
     <div className="App">
       <Banner />
-      <Formulario  setores = {setores.map(setor => setor.nome)} aoServidorCadastrado ={servidor => aoNovoServidor(servidor)} />
-      {setores.map(setor => <Setor key={setor.nome} nome={setor.nome} corPrimaria={setor.corPrimaria} corSecundraia={setor.corSecundraia}/>)}
+      <Formulario 
+       setores = {setores.map(setor => setor.nome)}
+        aoServidorCadastrado ={servidor => aoNovoServidor(servidor)} />
+
+      {setores.map(setor => <Setor 
+        key={setor.nome} 
+        nome={setor.nome}
+        corPrimaria={setor.corPrimaria}
+        corSecundraia={setor.corSecundraia}
+        servidores ={servidores.filter(servidor => servidor.setor === setor.nome)}
+        />)}
+
     </div>
   );
 }
