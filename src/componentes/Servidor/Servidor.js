@@ -1,9 +1,9 @@
 import './Servidor.css'
 
-const Servidor = ({nome, cargo, imagem}) => {
+const Servidor = ({nome, cargo, imagem, corDeFundo}) => {
     return(
         <div className='servidor'>
-            <div className='cabecalho'>
+            <div className='cabecalho' style={{backgroundColor: corDeFundo}}>
                 <img src={imagem} alt={nome}/>
             </div>
             <div className='rodape'>

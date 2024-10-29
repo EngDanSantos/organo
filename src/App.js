@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Setor from './componentes/Setor';
+import Rodape from './componentes/Rodape/Rodape';
 
 function App() {
 
@@ -46,7 +47,6 @@ const setores = [
 const [servidores, setServidores] = useState([])
 
 const aoNovoServidor = (servidor) => {
-  console.log(servidor)
   setServidores([...servidores, servidor])
 }
 
@@ -64,8 +64,10 @@ const aoNovoServidor = (servidor) => {
         corSecundraia={setor.corSecundraia}
         servidores ={servidores.filter(servidor => servidor.setor === setor.nome)}
         />)}
+      <Rodape/>
 
     </div>
+    
   );
 }
 
